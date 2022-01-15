@@ -1,5 +1,5 @@
-// const faker= require('faker');
 ///<reference types="Cypress"/>
+const faker = require('faker')
 
 describe('Create Project', () => {
     beforeEach(()=>{
