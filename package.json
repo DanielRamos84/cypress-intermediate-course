@@ -18,6 +18,7 @@
   },
   "homepage": "https://gitlab.com/wlsf82/cypress-intermediate-course#readme",
   "devDependencies": {
-    "cypress": "^9.2.1"
+    "cypress": "^9.2.1",
+    "faker": "^6.6.6"
   }
 }
