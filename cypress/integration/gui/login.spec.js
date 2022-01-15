@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-describe('some test', () => {
-  it('visit', () => {
-    cy.visit('/');
+describe('Login', () => {
+  it('Successfully logs in', () => {
+    cy.login();
   });
 });

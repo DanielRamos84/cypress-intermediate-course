@@ -1,0 +1,23 @@
+{
+  "name": "cypress-intermediate-course",
+  "version": "1.0.0",
+  "description": "An [intermediate course of test automation with Cypress](https://www.udemy.com/course/test-automation-with-cypress-intermediate/) from the Talking About Testing school.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/wlsf82/cypress-intermediate-course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/wlsf82/cypress-intermediate-course/issues"
+  },
+  "homepage": "https://gitlab.com/wlsf82/cypress-intermediate-course#readme",
+  "devDependencies": {
+    "cypress": "^9.2.1"
+  }
+}
