@@ -23,7 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('login', ()=>{
+Cypress.Commands.add('gui_login', ()=>{
     cy.visit('/');
     
     cy.get('[data-qa-selector="login_field"]')
@@ -36,7 +36,7 @@ Cypress.Commands.add('login', ()=>{
         .click();
 });
 
-Cypress.Commands.add('logout', ()=>{
+Cypress.Commands.add('gui_logout', ()=>{
     cy.get('.header-user-avatar')
         .should('be.visible')
         .click();
@@ -47,3 +47,39 @@ Cypress.Commands.add('logout', ()=>{
     cy.url()
         .should('eq', `${Cypress.config('baseUrl')}users/sign_in`)
 });
+
+Cypress.Commands.add('gui_createProject', project=>{
+    cy.get('#js-onboarding-new-project-link')
+        .should('be.visible')
+        .click();
+
+    cy.contains('.qa-global-new-project-link', 'New project')
+    .click();
+
+    cy.url()
+        .should('eq', `${Cypress.config('baseUrl')}projects/new`);
+
+    cy.get('#project_name')
+        .type(project.name);
+
+    cy.get('#project_description')
+        .type(project.description);
+
+    cy.get('#project_initialize_with_readme')
+        .click();
+
+    cy.get('[class="btn btn-success project-submit"]')
+        .eq('0')
+        .click();
+});
+
+Cypress.Commands.add('gui_createIssue', issue => {
+    cy.visit(`${Cypress.env('user_name')}/${issue.project.name}/issues/new`)
+  
+    cy.get('.qa-issuable-form-title').type(issue.title);
+    
+    cy.get('.qa-issuable-form-description').type(issue.description);
+    
+    cy.contains('Submit issue').click();
+  });
+  
