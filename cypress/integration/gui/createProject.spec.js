@@ -1,9 +1,7 @@
 const faker = require('faker')
 
 describe('Create Project', () => {
-    beforeEach(()=>{
-        cy.gui_login()
-    });
+    beforeEach(()=>{cy.gui_login()});
     
     it('Successfully creates project', () => {
         const project= {
