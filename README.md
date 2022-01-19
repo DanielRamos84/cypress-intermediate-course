@@ -29,7 +29,7 @@ Then in our login custom command stored under gui_commands we use {sensitive:tru
     cy.get('[data-qa-selector="password_field"]')
         .type(Cypress.env('user_password'), {sensitive:true});
 
-https://github.com/DanielRamos84/cypress-intermediate-course/blob/master/screenshots/Snip_01.png
+[img](https://github.com/DanielRamos84/cypress-intermediate-course/blob/master/screenshots/Snip_01.png)
 
 # Logout
 Similarly for this test we use a custom command `gui_logout`, in order to logout we first call our `gui_login` in a beforeEach hook.
