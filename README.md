@@ -1,16 +1,20 @@
-# cypress-intermediate-course
+## API SECTION
+For this course we make use of Gitlab rest API [gitlab rest api](https://docs.gitlab.com/ee/api/index.html#rest-api). Highly recommend reading this index page to get familiar with the application, the rest should be straightforward following the documentation to create the actual requests [gitlab api resources](https://docs.gitlab.com/ee/api/api_resources.html)
 
-An [intermediate course of test automation with Cypress](https://www.udemy.com/course/test-automation-with-cypress-intermediate/) from the Talking About Testing school.
+We have generated a personal token therefore our requests will be formatted 
+as curl `"https://localhost/api/v4/projects?private_token=<your_access_token>"`
 
-## General housekeeping
-Turn on intellisense globally -  Create a new folder `jsconfig.json` in the root directory and paste the following:
+In our `api_commands` file assign your token to a constant so we can easily make reference of the access token in our api requests
 
-`{
-    "include": ["./node_modules/cypress", "cypress/**/*.js"]
-}`
+`const accessToken = Cypress.env('gitlab_access_token')`
+
+Our api requests will be formatted such as the example below used to create a project
+
+`/api/v4/projects/?private_token=${accessToken}`
 
 
-## [GUI section](https://github.com/DanielRamos84/cypress-intermediate-course/blob/createProject-feature/cypress/integration/gui/GUI-section.md)
-
-## [API section](https://github.com/DanielRamos84/cypress-intermediate-course/blob/createProject-feature/cypress/integration/api/API-section.md)
+Our workflow will be the following:
+- Create project
+- Create issue, we'll need as precondition an existing project so we can use that project's ID in our issue request
+- 
 
