@@ -1,7 +1,5 @@
-/// <reference types="cypress" />
-
 describe('Login', () => {
   it('Successfully logs in', () => {
-    cy.login();
+    cy.gui_login();
   });
 });
