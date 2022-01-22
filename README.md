@@ -12,5 +12,5 @@ Turn on intellisense globally -  Create a new folder `jsconfig.json` in the root
 
 ## [GUI section](https://github.com/DanielRamos84/cypress-intermediate-course/blob/createProject-feature/cypress/integration/gui/GUI-section.md)
 
-## [API section](https://github.com/DanielRamos84/cypress-intermediate-course/blob/createProject-feature/cypress/integration/api/API-section.md)
+## [API section](https://github.com/DanielRamos84/cypress-intermediate-course/blob/master/cypress/integration/api/README.md)
 
