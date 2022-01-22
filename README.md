@@ -31,7 +31,13 @@ Our api requests will be formatted such as the example below used to create a pr
     ``cy.log(`Project description: ${res.body.description}`);``
 
 ### Create issue
-- There's no need to login to the application for this test because we're creating the project via API endpoint
 - In our `createIssue.spec.js` under the integration/api folder we call a custom command in which we pass in an object project created via faker data that consists of an object "issue" with properties: title and description.  Withing the object there's a nested object named "project" with properties: name and description.
 - The properties we are passing to the object are the minimum requirements when making api calls using the create new project and issue end point, reference gitlab documentation for the particular request you are making taking note of the Required column and values distinguished as "yes".
 - Our custom command `cy.api_createIssue(issue)` makes a POST request using our access token, withing this custom command we first call our previous `createProject.spec.js` custom command passing in issue.project object and from that response we take the project id use it in query parameters in our request.
+
+### Create label issue
+- In our `createLabel.spec.js` under the integration/api folder we call a custom command in which we pass in an object project created via faker data that consists of an object "project" with properties: name and description.  Withing the object there's a nested object named "label" with properties: name, color and description.
+- The properties we are passing to the object are the minimum requirements when making api calls using the create new project and issue end point, reference gitlab documentation for the particular request you are making taking note of the Required column and values distinguished as "yes".
+- Our custom command `cy.api_createLabel(project)` makes a POST request using our access token, withing this custom command we first call our previous `createProject.spec.js` custom command passing in the project object and from that response we take the project id use it in query parameters in our request for the label creation.
+- Note: At this point we've only created the label under the project but this isn't linked to the issue.  We'll be tackling on next but first.
+- Doing all these tests is making a mess creating new projects every time and this is unnecessary.  I couldn't find an api endpoint to delete all projects so what we'll do is get all projects wrap the response id and pass this to a for each loop where we use a DELETE request, this will be saved under a re-usable custom command `api_deleteAllProjects`.  Finally we want to run this in a beforeEach hook on each of our spec files to clean things up.

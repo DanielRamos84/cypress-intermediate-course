@@ -8,6 +8,10 @@ const issue= {
         description: faker.random.words(5)
     }
 };
+
+beforeEach(()=>{
+    cy.api_deleteAllProjects();
+});
     
 describe('Create Issue', () => {
     it('Successfully creates an issue', () => {

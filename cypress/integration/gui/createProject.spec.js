@@ -1,7 +1,10 @@
 const faker = require('faker')
 
 describe('Create Project', () => {
-    beforeEach(()=>{cy.gui_login()});
+    beforeEach(()=>{
+        cy.api_deleteAllProjects();
+        cy.gui_login()
+    });
     
     it('Successfully creates project', () => {
         const project= {
