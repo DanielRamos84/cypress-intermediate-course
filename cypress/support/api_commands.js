@@ -4,11 +4,7 @@ Cypress.Commands.add('api_createProject', project => {
   cy.request({
     method: 'POST',
     url: `/api/v4/projects/?private_token=${accessToken}`,
-    body: {
-      name: project.name,
-      description: project.description,
-      initialize_with_readme: true
-    }
+    body: project
     }).then(res=>{
         expect(res.status).eq(201);
         cy.log(`Project id: ${res.body.id}`);
