@@ -8,6 +8,7 @@ describe('Creates a label', () => {
         const project= {
             name: `project-${faker.datatype.uuid()}`,
             description: faker.random.words(5),
+            initialize_with_readme: true,
                 label: {
                     name: faker.name.firstName(5),
                     color: '#FFAABB',

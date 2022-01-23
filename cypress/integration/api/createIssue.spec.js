@@ -5,7 +5,8 @@ const issue= {
     description: faker.random.words(3),
     project: {
         name: `project-${faker.datatype.uuid()}`,
-        description: faker.random.words(5)
+        description: faker.random.words(5),
+        initialize_with_readme: true
     }
 };
 
