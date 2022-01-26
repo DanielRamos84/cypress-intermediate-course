@@ -73,4 +73,7 @@ Our api requests will be formatted such as the example below used to create a pr
     });
 
 - Now the only thing left is the actual implementation of assigning the label to the issue because at this point they're not linked.  We accomplish this via custom command a single custom command in our it block `cy.api_assignLabelToIssue(issue, this.projectId, this.issueId);`.  In a beforeEach hook we clear the application from any existing project and create an issue via api as our single precondition.  From its response we get the issue and project id that are passed to the custom command in question.
-- We face a new problem, how can we share the variables from our response into our it block?  To solve this we wrap both responses we're interested and then change our it block from arrow expression to function expression, then we can make use of `this` keyword. 
+- We face a new problem, how can we share the variables from our response into our it block?  To solve this we wrap both responses we're interested and then change our it block from arrow expression to function expression, then we can make use of `this` keyword.
+
+### Create milestone issue
+- Similar to create label issue we simply create a custom command where we create a project and pass the project id to our POST request for milestone.  `cy.api_createMilestone(project);`
