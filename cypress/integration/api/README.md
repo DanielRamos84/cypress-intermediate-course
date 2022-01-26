@@ -16,4 +16,5 @@ Our api requests will be formatted such as the example below used to create a pr
 Our workflow will be the following:
 - Create project
 - Create issue, we'll need as precondition an existing project so we can use that project's ID in our issue request
-- 
+- Create a label, assign the label to an issue
+- Create a milestone, assign the milestone to an issue
