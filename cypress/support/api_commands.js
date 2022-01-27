@@ -44,11 +44,11 @@ Cypress.Commands.add('api_createIssue', issue=>{
         });
 });
 
-Cypress.Commands.add('api_createLabel', (issue, project)=>{
+Cypress.Commands.add('api_createLabel', (project, projectId)=>{
         cy.request({
             method: 'POST',
-            url: `/api/v4/projects/${project}/labels/?private_token=${accessToken}`,
-            body: issue.label
+            url: `/api/v4/projects/${projectId}/labels/?private_token=${accessToken}`,
+            body: project.label
             }).then(res=>{
                 expect(res.status).eq(201);
                 cy.log(`New Project Label created, name: ${res.body.name} | Description: ${res.body.description}`);
