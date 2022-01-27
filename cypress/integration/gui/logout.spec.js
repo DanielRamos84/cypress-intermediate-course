@@ -1,5 +1,5 @@
 describe('Logout', () => {
-    beforeEach(()=>{gui_login()});
+    beforeEach(()=>{cy.gui_login()});
     
     it('Successfully logs out', () => {
         cy.gui_logout();
